@@ -15,5 +15,9 @@ module ChileConvencion
       @id, @title, @comision, @topic, @publication_date,
       @support_count, @type, @author, @organization, @url = csv_row.fields
     end
+
+    def details_url
+      "#{BASE_URL}detalle?id=#{@id}"
+    end
   end
 end
