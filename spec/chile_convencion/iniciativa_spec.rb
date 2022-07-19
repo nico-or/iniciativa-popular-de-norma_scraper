@@ -26,4 +26,17 @@ describe ChileConvencion::Iniciativa do
       expect(iniciativa.stats_url).to eq(url)
     end
   end
+
+  describe '#aprobada?' do
+    context 'iniciativa aprobada' do
+      it do
+        expect(iniciativa_aprobada.aprobada?).to be true
+      end
+    end
+    context 'iniciativa rechazada' do
+      it do
+        expect(iniciativa_rechazada.aprobada?).to be false
+      end
+    end
+  end
 end
