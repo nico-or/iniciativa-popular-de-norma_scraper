@@ -19,5 +19,9 @@ module ChileConvencion
     def details_url
       "#{BASE_URL}detalle?id=#{@id}"
     end
+
+    def stats_url
+      "#{BASE_URL}stats?id=#{@id}"
+    end
   end
 end

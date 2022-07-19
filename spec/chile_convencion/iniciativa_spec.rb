@@ -12,4 +12,11 @@ describe ChileConvencion::Iniciativa do
       expect(iniciativa.details_url).to eq(url)
     end
   end
+
+  describe '#stats_url' do
+    it do
+      url = 'https://plataforma.chileconvencion.cl/m/iniciativa_popular/stats?id=71002'
+      expect(iniciativa.stats_url).to eq(url)
+    end
+  end
 end
