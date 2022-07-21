@@ -18,26 +18,34 @@ module ChileConvencion
     attr_reader :id, :title, :comision, :topic, :publication_date,
                 :support_count, :type, :author, :organization, :url
 
-    BASE_URL = 'https://plataforma.chileconvencion.cl/m/iniciativa_popular/'
-
     # Initialize with data from
     #   - https://plataforma.chileconvencion.cl/m/iniciativa_popular/iniciativas.csv
     #   - https://plataforma.chileconvencion.cl/m/iniciativa_indigena/iniciativas.csv
-    def initialize(csv_row)
+    def initialize(csv_row, type)
+      raise unless ['popular', 'indigena'].include? type
+
       @id, @title, @comision, @topic, @publication_date,
       @support_count, @type, @author, @organization, @url = csv_row.fields
+
+      @type = type
     end
 
     def details_url
-      "#{BASE_URL}detalle?id=#{@id}"
+      "#{base_url}detalle?id=#{@id}"
     end
 
     def stats_url
-      "#{BASE_URL}stats?id=#{@id}"
+      "#{base_url}stats?id=#{@id}"
     end
 
     def aprobada?
       APROBADAS.include? @id
+    end
+
+    private
+
+    def base_url
+      "https://plataforma.chileconvencion.cl/m/iniciativa_#{type}/"
     end
   end
 end

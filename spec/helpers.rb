@@ -3,9 +3,9 @@
 require 'csv'
 
 module ChileConvencionHelpers
-  def load_iniciativa(type)
-    entry = CSV.open("spec/fixtures/iniciativa_#{type}.csv", headers: true)
-    ChileConvencion::Iniciativa.new entry.first
+  def load_iniciativa(name, type)
+    entry = CSV.open("spec/fixtures/iniciativa_#{name}.csv", headers: true)
+    ChileConvencion::Iniciativa.new(entry.first, type)
   end
 
   def load_webpage(name)
