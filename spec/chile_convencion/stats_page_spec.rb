@@ -14,8 +14,4 @@ describe ChileConvencion::StatsPage do
       expect(entry.count).to eq(2)
     end
   end
-
-  describe '#data_script_tags' do
-    it { expect(aprobada_stats.data_script_tags.count).to eq(9) }
-  end
 end
