@@ -14,5 +14,9 @@ module ChileConvencion
     def data_script_tags
       @data_script_tags_memo ||= parsed.css('script').select { _1.children.text.match? /addRows/ }
     end
+
+    def entry_regex
+      /\[" (.*?)",(\d+)/
+    end
   end
 end
