@@ -1,11 +1,7 @@
 require 'csv'
+include ChileConvencionHelpers
 
 describe ChileConvencion::Iniciativa do
-  def load_iniciativa(type)
-    entry = CSV.open("spec/fixtures/iniciativa_#{type}.csv", headers: true)
-    described_class.new entry.first
-  end
-
   let(:iniciativa_aprobada) { load_iniciativa('aprobada') }
   let(:iniciativa_rechazada) { load_iniciativa('rechazada') }
 
