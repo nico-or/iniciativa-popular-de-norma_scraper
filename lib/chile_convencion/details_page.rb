@@ -3,7 +3,7 @@
 require 'nokogiri'
 
 module ChileConvencion
-  # Parser for Iniciativa webpages
+  # Parser for Iniciativa Details webpage
   class DetailsPage
     def initialize(html)
       @parsed = Nokogiri html
