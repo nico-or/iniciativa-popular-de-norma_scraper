@@ -1,8 +1,4 @@
 describe ChileConvencion::DetailsPage do
-  def load_webpage(name)
-    File.read("./spec/fixtures/#{name}.html")
-  end
-
   let(:aprobada_details) do
     html = load_webpage('aprobada_details')
     described_class.new html
