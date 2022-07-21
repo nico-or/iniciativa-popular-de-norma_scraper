@@ -9,6 +9,6 @@ module ChileConvencionHelpers
   end
 
   def load_webpage(name)
-    File.read("./spec/fixtures/#{name}.html")
+    File.read("./spec/fixtures/#{name}.html", encoding: 'ISO8859-1:UTF-8')
   end
 end
