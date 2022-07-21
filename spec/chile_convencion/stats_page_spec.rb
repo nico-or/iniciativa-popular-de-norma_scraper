@@ -4,6 +4,17 @@ describe ChileConvencion::StatsPage do
     described_class.new html
   end
 
+  describe '#apoyos_por_fecha' do
+    subject { aprobada_stats.apoyos_por_fecha }
+
+    it { should be_an Array }
+    it { should all be_an Array }
+    it do
+      entry = subject.first
+      expect(entry.count).to eq(2)
+    end
+  end
+
   describe '#data_script_tags' do
     it { expect(aprobada_stats.data_script_tags.count).to eq(9) }
   end
