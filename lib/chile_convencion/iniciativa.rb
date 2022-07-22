@@ -52,10 +52,18 @@ module ChileConvencion
       popular? && aprobada?
     end
 
+    def details_page
+      @details_page ||= ChileConvencion::DetailsPage.new html_body(details_url)
+    end
+
     private
 
     def base_url
       "https://plataforma.chileconvencion.cl/m/iniciativa_#{type}/"
+    end
+
+    def html_body(url)
+      Page.find(url: url).html
     end
   end
 end
