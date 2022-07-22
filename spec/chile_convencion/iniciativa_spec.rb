@@ -91,6 +91,12 @@ describe ChileConvencion::Iniciativa do
         expect(iniciativa_indigena.aprobada?).to be false
       end
     end
+    context 'iniciativa indigena con id aprobada' do
+      it do
+        iniciativa = load_iniciativa('indigena_aprobada', 'indigena')
+        expect(iniciativa.aprobada?).to be false
+      end
+    end
   end
 
   describe '#indigena?' do

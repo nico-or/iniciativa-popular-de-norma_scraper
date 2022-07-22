@@ -39,7 +39,7 @@ module ChileConvencion
     end
 
     def aprobada?
-      APROBADAS.include? @id
+      APROBADAS.include?(id) && popular?
     end
 
     %w[indigena popular].each do |method|
