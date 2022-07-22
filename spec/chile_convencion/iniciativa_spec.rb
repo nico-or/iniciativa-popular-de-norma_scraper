@@ -44,7 +44,7 @@ describe ChileConvencion::Iniciativa do
         expect(iniciativa.details_url).to eq(url)
       end
 
-      it do
+      it 'should return a 200 status when sending a GET request to #details_url', slow: true do
         req = HTTParty.head iniciativa.details_url
         expect(req.success?).to be true
       end
@@ -59,7 +59,7 @@ describe ChileConvencion::Iniciativa do
         expect(iniciativa.details_url).to eq(url)
       end
 
-      it do
+      it 'should return a 200 status when sending a GET request to #details_url', slow: true do
         req = HTTParty.head iniciativa.details_url
         expect(req.success?).to be true
       end
