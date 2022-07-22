@@ -42,12 +42,10 @@ module ChileConvencion
       APROBADAS.include? @id
     end
 
-    def indigena?
-      type.eql? 'indigena'
-    end
-
-    def popular?
-      type.eql? 'popular'
+    %w[indigena popular].each do |method|
+      define_method("#{method}?") do
+        type.eql? method
+      end
     end
 
     private
