@@ -120,4 +120,24 @@ describe ChileConvencion::Iniciativa do
       end
     end
   end
+
+  describe '#stats_page?' do
+    context 'iniciativa popular aprobada' do
+      it do
+        expect(iniciativa_aprobada.stats_page?).to eq(true)
+      end
+    end
+
+    context 'iniciativa popular rechazada' do
+      it do
+        expect(iniciativa_rechazada.stats_page?).to eq(false)
+      end
+    end
+
+    context 'iniciativa indigena' do
+      it do
+        expect(iniciativa_indigena.stats_page?).to eq(false)
+      end
+    end
+  end
 end

@@ -48,6 +48,10 @@ module ChileConvencion
       end
     end
 
+    def stats_page?
+      popular? && aprobada?
+    end
+
     private
 
     def base_url
