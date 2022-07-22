@@ -163,4 +163,23 @@ describe ChileConvencion::Iniciativa do
       it { should be_a ChileConvencion::DetailsPage }
     end
   end
+
+  describe '#stats_page', focus: true do
+    context 'iniciativa popular aprobada' do
+      subject { iniciativa_aprobada.stats_page }
+      it { should be_a ChileConvencion::StatsPage }
+    end
+
+    context 'iniciativa popular rechazada' do
+      it do
+        expect { iniciativa_rechazada.stats_page }.to raise_error(RuntimeError, 'Iniciativa without Stats Page')
+      end
+    end
+
+    context 'iniciativa indigena' do
+      it do
+        expect { iniciativa_indigena.stats_page }.to raise_error(RuntimeError, 'Iniciativa without Stats Page')
+      end
+    end
+  end
 end
