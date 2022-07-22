@@ -46,6 +46,10 @@ module ChileConvencion
       type.eql? 'indigena'
     end
 
+    def popular?
+      type.eql? 'popular'
+    end
+
     private
 
     def base_url
