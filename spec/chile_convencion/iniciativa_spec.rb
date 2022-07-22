@@ -86,5 +86,18 @@ describe ChileConvencion::Iniciativa do
         expect(iniciativa_rechazada.aprobada?).to be false
       end
     end
+
+  describe '#indigena?' do
+    context 'iniciativa popular' do
+      it do
+        expect(iniciativa_aprobada.indigena?).to be false
+      end
+    end
+
+    context 'iniciativa indigena' do
+      it do
+        expect(iniciativa_indigena.indigena?).to be true
+      end
+    end
   end
 end

@@ -42,6 +42,10 @@ module ChileConvencion
       APROBADAS.include? @id
     end
 
+    def indigena?
+      type.eql? 'indigena'
+    end
+
     private
 
     def base_url
