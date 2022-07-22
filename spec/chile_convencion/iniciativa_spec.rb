@@ -86,6 +86,7 @@ describe ChileConvencion::Iniciativa do
         expect(iniciativa_rechazada.aprobada?).to be false
       end
     end
+  end
 
   describe '#indigena?' do
     context 'iniciativa popular' do
