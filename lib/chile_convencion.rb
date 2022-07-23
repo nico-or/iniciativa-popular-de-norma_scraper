@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require 'csv'
 
 require_relative 'helpers'
 require_relative 'chile_convencion/webpage_parser'
@@ -14,12 +13,15 @@ require_relative 'chile_convencion/cabildo_details'
 require_relative '../db/database'
 
 module ChileConvencion
-  # Load iniciativas CSV data
-  # Input:
-  #   - type: String (popular/indigena)
   def self.load_iniciativas(type)
-    rows = CSV.open("./data/iniciativa_#{type}_norma.csv", headers: true)
-    rows.map { |row| ChileConvencion::Iniciativa.new(row, type) }
+    index = Nokogiri(File.read("data/index_iniciativa_#{type}.html"))
+    index.css('#iniciativas .iniciativa').map { |card| Iniciativa.new(card, type) }
+  end
+
+  def self.load_all_iniciativas
+    %w[indigena popular]
+      .map { |type| load_iniciativas(type) }
+      .flatten
   end
 
   def self.load_cabildos

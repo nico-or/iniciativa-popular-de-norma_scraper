@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'forwardable'
+
 module ChileConvencion
   # IDs obtained from
   # https://plataforma.chileconvencion.cl/m/iniciativa_popular/aprobadas
@@ -14,28 +16,47 @@ module ChileConvencion
   ].freeze
 
   # Iniciativa Popular de Norma
-  class Iniciativa
-    attr_reader :id, :title, :comision, :topic, :publication_date,
-                :support_count, :type, :author, :organization, :url
+  class Iniciativa < ElementParser
+    attr_reader :type
 
-    # Initialize with data from
-    #   - https://plataforma.chileconvencion.cl/m/iniciativa_popular/iniciativas.csv
-    #   - https://plataforma.chileconvencion.cl/m/iniciativa_indigena/iniciativas.csv
-    def initialize(csv_row, type)
+    extend Forwardable
+
+    def_delegators :details_page, :topic, :author, :organization
+
+    def initialize(nokogiri_node, type)
       raise unless ['popular', 'indigena'].include? type
 
-      @id, @title, @comision, @topic, @publication_date,
-      @support_count, @type, @author, @organization, @url = csv_row.fields
-
       @type = type
+      super(nokogiri_node)
+    end
+
+    def id
+      (/(\d+)/.match(h1_element.get_attribute(:href)))[1]
+    end
+
+    def title
+      h1_element.text.strip
+    end
+
+    def commission
+      @element.css('.pill').text
+    end
+
+    def publication_date
+      string = @element.css('div').first.get_attribute('data-fecha')
+      DateTime.parse(string).strftime('%d/%m/%Y')
+    end
+
+    def support_count
+      @element.css('div').first.get_attribute('data-apoyos').to_i
     end
 
     def details_url
-      "#{base_url}detalle?id=#{@id}"
+      "#{base_url}detalle?id=#{id}"
     end
 
     def stats_url
-      "#{base_url}stats?id=#{@id}"
+      "#{base_url}stats?id=#{id}"
     end
 
     def aprobada?
@@ -63,6 +84,10 @@ module ChileConvencion
     end
 
     private
+
+    def h1_element
+      @element.css('h1 a').first
+    end
 
     def base_url
       "https://plataforma.chileconvencion.cl/m/iniciativa_#{type}/"
