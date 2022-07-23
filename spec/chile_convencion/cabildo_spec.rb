@@ -10,4 +10,10 @@ describe ChileConvencion::Cabildo do
     path = 'https://plataforma.chileconvencion.cl/m/cabildos/o/806'
     it { expect(cabildo.details_url).to eq(path) }
   end
+
+  describe '#id' do
+    subject { cabildo.id }
+
+    it { should eq('806') }
+  end
 end
