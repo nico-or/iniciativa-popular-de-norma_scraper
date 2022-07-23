@@ -22,4 +22,18 @@ describe ChileConvencion::CabildoDetails do
       expect(subject).to eq(temas)
     end
   end
+
+  describe '#participantes_validadores' do
+    subject { cabildo_details.participantes_validadores }
+    it do
+      validadores = [
+        "Álvaro Santos P.", "Brajean Castillo C.", "Gisselle Zamora D.",
+        "Claudina Araya R.", "María Urrutia A.", "Gonzalo Soto G.",
+        "Priscilla Torres A.", "Álvaro Santos P.", "Brajean Castillo C.",
+        "Gisselle Zamora D.", "Claudina Araya R.", "María Urrutia A.",
+        "Gonzalo Soto G.", "Priscilla Torres A."
+      ]
+      expect(subject).to eq(validadores)
+    end
+  end
 end
