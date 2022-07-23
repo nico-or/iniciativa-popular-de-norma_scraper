@@ -38,7 +38,7 @@ module ChileConvencion
     def h2_elements
       # Matches a line like:
       # Cabildo comunal Nº 806 - 12/01/2022
-      regex = /(.*) Nº (\d+) - (.*)/
+      regex = /(.*) N.+ (\d+) - (.*)/
       regex.match @element.css('h2').text
     end
 
