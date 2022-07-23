@@ -17,4 +17,9 @@ module ChileConvencion
     rows = CSV.open("./data/iniciativa_#{type}_norma.csv", headers: true)
     rows.map { |row| ChileConvencion::Iniciativa.new(row, type) }
   end
+
+  def self.load_cabildos
+    index = Nokogiri(File.read('data/index_cabildos.html'))
+    index.css('#actas .acta').map { |card| Cabildo.new(card) }
+  end
 end
