@@ -6,5 +6,12 @@ module ChileConvencion
     def initialize(html)
       @parsed = Nokogiri(html)
     end
+
+    def temas_abordados
+      @parsed
+        .css('#encuentro h2 + p')
+        .map(&:text)
+        .map { _1.gsub(/\ATema: /, '') }
+    end
   end
 end
