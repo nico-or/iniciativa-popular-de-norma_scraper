@@ -2,7 +2,7 @@
 
 module ChileConvencion
   # Parser for Iniciativa Details webpage
-  class DetailsPage < WebpageParser
+  class IniciativaDetails < WebpageParser
     def respuestas
       @parsed.css('#propuesta p').map(&:text)
     end

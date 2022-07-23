@@ -2,7 +2,7 @@
 
 module ChileConvencion
   # Parser for Iniciativa Stats webpage
-  class StatsPage < WebpageParser
+  class IniciativaStats < WebpageParser
     %i[
       apoyos_por_fecha apoyos_acumulados_por_fecha apoyos_por_hora
       edades identidad_de_genero grupos_de_interes apoyos_por_regiones

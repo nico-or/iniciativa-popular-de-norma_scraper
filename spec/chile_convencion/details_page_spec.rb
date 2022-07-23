@@ -1,4 +1,4 @@
-describe ChileConvencion::DetailsPage do
+describe ChileConvencion::IniciativaDetails do
   let(:aprobada_details) do
     html = load_webpage_fixture('aprobada_details')
     described_class.new html

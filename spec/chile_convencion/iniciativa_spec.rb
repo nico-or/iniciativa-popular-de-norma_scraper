@@ -147,24 +147,24 @@ describe ChileConvencion::Iniciativa do
   describe '#details_page', focus: true do
     context 'iniciativa popular aprobada' do
       subject { iniciativa_aprobada.details_page }
-      it { should be_a ChileConvencion::DetailsPage }
+      it { should be_a ChileConvencion::IniciativaDetails }
     end
 
     context 'iniciativa popular rechazada' do
       subject { iniciativa_rechazada.details_page }
-      it { should be_a ChileConvencion::DetailsPage }
+      it { should be_a ChileConvencion::IniciativaDetails }
     end
 
     context 'iniciativa indigena' do
       subject { iniciativa_indigena.details_page }
-      it { should be_a ChileConvencion::DetailsPage }
+      it { should be_a ChileConvencion::IniciativaDetails }
     end
   end
 
   describe '#stats_page', focus: true do
     context 'iniciativa popular aprobada' do
       subject { iniciativa_aprobada.stats_page }
-      it { should be_a ChileConvencion::StatsPage }
+      it { should be_a ChileConvencion::IniciativaStats }
     end
 
     context 'iniciativa popular rechazada' do

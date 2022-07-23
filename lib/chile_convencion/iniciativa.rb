@@ -53,13 +53,13 @@ module ChileConvencion
     end
 
     def details_page
-      @details_page ||= ChileConvencion::DetailsPage.new html_body(details_url)
+      @details_page ||= ChileConvencion::IniciativaDetails.new html_body(details_url)
     end
 
     def stats_page
       raise 'Iniciativa without Stats Page' unless stats_page?
 
-      @stats_page ||= ChileConvencion::StatsPage.new html_body(stats_url)
+      @stats_page ||= ChileConvencion::IniciativaStats.new html_body(stats_url)
     end
 
     private
