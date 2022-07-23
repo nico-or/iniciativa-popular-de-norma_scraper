@@ -21,6 +21,10 @@ module ChileConvencion
       @nombre ||= @element.css('h1').text
     end
 
+    def modalidad
+      li_elements[0]
+    end
+
     private
 
     def relative_path
@@ -32,6 +36,19 @@ module ChileConvencion
       # Cabildo comunal Nº 806 - 12/01/2022
       regex = /(.*) Nº (\d+) - (.*)/
       regex.match @element.css('h2').text
+    end
+
+    def li_elements
+      # Matches a line like:
+      # foo: bar
+      regex = /:\s+(.+)/
+
+      @element
+        .css('li')
+        .map(&:text)
+        .map { regex.match _1 }
+        .map { _1[1] }
+        .map(&:strip)
     end
   end
 end

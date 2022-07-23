@@ -34,4 +34,10 @@ describe ChileConvencion::Cabildo do
 
     it { should eq('12/01/2022') }
   end
+
+  describe '#modalidad' do
+    subject { cabildo.modalidad }
+
+    it { should eq('Presencial') }
+  end
 end
