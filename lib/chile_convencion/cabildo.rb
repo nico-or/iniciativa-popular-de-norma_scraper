@@ -15,6 +15,10 @@ module ChileConvencion
       @id ||= h2_elements[2]
     end
 
+    def nombre
+      @nombre ||= @element.css('h1').text
+    end
+
     private
 
     def relative_path
