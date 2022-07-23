@@ -11,16 +11,10 @@ module ChileConvencion
       URI.join(BASE_URL, relative_path).to_s
     end
 
-    def tipo
-      @tipo ||= h2_elements[1]
-    end
-
-    def id
-      @id ||= h2_elements[2]
-    end
-
-    def fecha
-      @fecha ||= h2_elements[3]
+    %w[tipo id fecha].each_with_index do |method, index|
+      define_method(method) do
+        instance_variable_set("@#{method}", h2_elements[index + 1])
+      end
     end
 
     def nombre
