@@ -2,7 +2,7 @@ require 'nokogiri'
 
 describe ChileConvencion::Cabildo do
   let(:cabildo) do
-    card = Nokogiri(File.read('spec/fixtures/cabildo_card.html'))
+    card = Nokogiri(load_webpage_fixture('cabildo_card'))
     described_class.new(card)
   end
 

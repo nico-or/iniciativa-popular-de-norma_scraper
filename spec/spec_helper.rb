@@ -18,8 +18,6 @@ require './lib/chile_convencion'
 require './spec/helpers'
 
 RSpec.configure do |config|
-  config.include ChileConvencionHelpers
-
   # exclude tagged examples
   config.filter_run_excluding :slow => true
 

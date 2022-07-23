@@ -1,7 +1,4 @@
-require 'csv'
 require 'httparty'
-
-include ChileConvencionHelpers
 
 describe ChileConvencion::Iniciativa do
   let(:iniciativa_aprobada) { load_iniciativa('aprobada', 'popular') }

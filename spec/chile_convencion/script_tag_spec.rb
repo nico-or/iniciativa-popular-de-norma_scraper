@@ -1,6 +1,6 @@
 describe ChileConvencion::ScriptTag do
   let(:script_tag) do
-    html = load_webpage('script_tag')
+    html = load_webpage_fixture('script_tag')
     parsed = Nokogiri html
     described_class.new parsed
   end
