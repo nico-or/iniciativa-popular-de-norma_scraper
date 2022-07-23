@@ -11,6 +11,10 @@ module ChileConvencion
       URI.join(BASE_URL, relative_path).to_s
     end
 
+    def tipo
+      @tipo ||= h2_elements[1]
+    end
+
     def id
       @id ||= h2_elements[2]
     end

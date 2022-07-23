@@ -22,4 +22,10 @@ describe ChileConvencion::Cabildo do
 
     it { should eq('Cabildo Monte Patria. Perspectivas de personas mayores.') }
   end
+
+  describe '#tipo' do
+    subject { cabildo.tipo }
+
+    it { should eq('Cabildo comunal') }
+  end
 end
