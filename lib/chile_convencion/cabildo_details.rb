@@ -2,11 +2,7 @@
 
 module ChileConvencion
   # Parser for Cabildo details webpage
-  class CabildoDetails
-    def initialize(html)
-      @parsed = Nokogiri(html)
-    end
-
+  class CabildoDetails < WebpageParser
     def temas_abordados
       @parsed
         .css('#encuentro h2 + p')
