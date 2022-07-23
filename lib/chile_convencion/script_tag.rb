@@ -2,11 +2,7 @@
 
 module ChileConvencion
   # Parser for the HTML script tags that contains the stats data
-  class ScriptTag
-    def initialize(nokogiri_element)
-      @element = nokogiri_element
-    end
-
+  class ScriptTag < ElementParser
     def entries
       @entries ||= splitted_entries.map { |e| parse_entry(e) }
     end
