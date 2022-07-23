@@ -40,4 +40,10 @@ describe ChileConvencion::Cabildo do
 
     it { should eq('Presencial') }
   end
+
+  describe '#ubicacion' do
+    subject { cabildo.ubicacion }
+
+    it { should eq('Monte Patria') }
+  end
 end

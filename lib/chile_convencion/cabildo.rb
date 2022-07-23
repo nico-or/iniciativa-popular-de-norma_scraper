@@ -25,6 +25,10 @@ module ChileConvencion
       li_elements[0]
     end
 
+    def ubicacion
+      li_elements[3]
+    end
+
     private
 
     def relative_path
