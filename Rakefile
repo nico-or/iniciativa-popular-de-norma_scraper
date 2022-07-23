@@ -34,6 +34,9 @@ namespace :db do
       out
     end
 
+    cabildos = ChileConvencion.load_cabildos
+    urls += cabildos.map(&:details_url)
+
     total = urls.count
 
     urls.shuffle.each.with_index do |url, index|
