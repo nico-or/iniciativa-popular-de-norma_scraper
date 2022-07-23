@@ -28,4 +28,10 @@ describe ChileConvencion::Cabildo do
 
     it { should eq('Cabildo comunal') }
   end
+
+  describe '#fecha' do
+    subject { cabildo.fecha }
+
+    it { should eq('12/01/2022') }
+  end
 end

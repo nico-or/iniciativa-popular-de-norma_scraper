@@ -19,6 +19,10 @@ module ChileConvencion
       @id ||= h2_elements[2]
     end
 
+    def fecha
+      @fecha ||= h2_elements[3]
+    end
+
     def nombre
       @nombre ||= @element.css('h1').text
     end
