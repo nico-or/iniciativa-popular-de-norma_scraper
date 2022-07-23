@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe ChileConvencion::ScriptTag do
   let(:script_tag) do
     html = load_webpage_fixture('script_tag')

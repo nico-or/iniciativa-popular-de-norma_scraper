@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe ChileConvencion::IniciativaStats do
   let(:aprobada_stats) do
     html = load_webpage_fixture('aprobada_stats')

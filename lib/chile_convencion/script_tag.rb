@@ -1,4 +1,4 @@
-#frozen_string_literal: true
+# frozen_string_literal: true
 
 module ChileConvencion
   # Parser for the HTML script tags that contains the stats data

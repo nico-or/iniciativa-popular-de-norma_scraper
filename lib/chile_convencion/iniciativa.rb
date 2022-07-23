@@ -24,7 +24,7 @@ module ChileConvencion
     def_delegators :details_page, :topic, :author, :organization
 
     def initialize(nokogiri_node, type)
-      raise unless ['popular', 'indigena'].include? type
+      raise unless %w[popular indigena].include? type
 
       @type = type
       super(nokogiri_node)

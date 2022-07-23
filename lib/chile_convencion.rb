@@ -1,16 +1,15 @@
 # frozen_string_literal: true
 
-
-require_relative 'helpers'
 require_relative 'chile_convencion/webpage_parser'
 require_relative 'chile_convencion/element_parser'
-require_relative 'chile_convencion/iniciativa'
 require_relative 'chile_convencion/iniciativa_details'
 require_relative 'chile_convencion/iniciativa_stats'
+require_relative 'chile_convencion/cabildo_details'
+require_relative 'chile_convencion/iniciativa'
 require_relative 'chile_convencion/script_tag'
 require_relative 'chile_convencion/cabildo'
-require_relative 'chile_convencion/cabildo_details'
 require_relative '../db/database'
+require_relative 'helpers'
 
 module ChileConvencion
   def self.load_iniciativas(type)

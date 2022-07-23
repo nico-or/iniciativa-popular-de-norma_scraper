@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe ChileConvencion::IniciativaDetails do
   let(:details_aprobada_organizacion) do
     html = load_webpage_fixture('iniciativa_details_aprobada_organizacion')
@@ -18,7 +20,6 @@ describe ChileConvencion::IniciativaDetails do
     it { expect(@respuestas).to all be_an String }
     it { expect(@respuestas.count).to be 6 }
   end
-
 
   describe '#topic' do
     it do

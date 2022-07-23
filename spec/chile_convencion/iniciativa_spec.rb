@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'httparty'
 
 describe ChileConvencion::Iniciativa do
@@ -34,7 +36,7 @@ describe ChileConvencion::Iniciativa do
 
   describe '#support_count' do
     it do
-      support_count = 60852
+      support_count = 60_852
       expect(iniciativa_aprobada.support_count).to eq(support_count)
     end
   end
@@ -76,7 +78,7 @@ describe ChileConvencion::Iniciativa do
 
   describe '#details_url' do
     context 'iniciativa popular' do
-      let (:iniciativa) { iniciativa_aprobada }
+      let(:iniciativa) { iniciativa_aprobada }
 
       it do
         id = iniciativa.id
@@ -91,7 +93,7 @@ describe ChileConvencion::Iniciativa do
     end
 
     context 'iniciativa indigena' do
-      let (:iniciativa) { iniciativa_indigena }
+      let(:iniciativa) { iniciativa_indigena }
 
       it do
         id = iniciativa.id
@@ -186,7 +188,7 @@ describe ChileConvencion::Iniciativa do
     end
   end
 
-  describe '#details_page', focus: true do
+  describe '#details_page' do
     context 'iniciativa popular aprobada' do
       subject { iniciativa_aprobada.details_page }
       it { should be_a ChileConvencion::IniciativaDetails }
@@ -203,7 +205,7 @@ describe ChileConvencion::Iniciativa do
     end
   end
 
-  describe '#stats_page', focus: true do
+  describe '#stats_page' do
     context 'iniciativa popular aprobada' do
       subject { iniciativa_aprobada.stats_page }
       it { should be_a ChileConvencion::IniciativaStats }

@@ -41,7 +41,7 @@ namespace :db do
 
     urls.shuffle.each.with_index do |url, index|
       # progress display
-      count_str = format('(%5d/%5d)', index, total)
+      count_str = format('(%5d/%5d)', index + 1, total)
 
       if Page.find url: url
         logger.info "#{count_str} Skipping #{url}. Found in database."

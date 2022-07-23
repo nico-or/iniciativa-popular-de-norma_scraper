@@ -1,2 +1,5 @@
 *.sqlite
 data/*.csv
+data/*.html
+TODO.md
+*~

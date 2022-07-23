@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ChileConvencion
   # Cabildo o Encuentro
   class Cabildo < ElementParser

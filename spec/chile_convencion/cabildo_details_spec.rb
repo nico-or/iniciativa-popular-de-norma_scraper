@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'nokogiri'
 
 describe ChileConvencion::CabildoDetails do
@@ -27,11 +29,11 @@ describe ChileConvencion::CabildoDetails do
     subject { cabildo_details.participantes_validadores }
     it do
       validadores = [
-        "Álvaro Santos P.", "Brajean Castillo C.", "Gisselle Zamora D.",
-        "Claudina Araya R.", "María Urrutia A.", "Gonzalo Soto G.",
-        "Priscilla Torres A.", "Álvaro Santos P.", "Brajean Castillo C.",
-        "Gisselle Zamora D.", "Claudina Araya R.", "María Urrutia A.",
-        "Gonzalo Soto G.", "Priscilla Torres A."
+        'Álvaro Santos P.', 'Brajean Castillo C.', 'Gisselle Zamora D.',
+        'Claudina Araya R.', 'María Urrutia A.', 'Gonzalo Soto G.',
+        'Priscilla Torres A.', 'Álvaro Santos P.', 'Brajean Castillo C.',
+        'Gisselle Zamora D.', 'Claudina Araya R.', 'María Urrutia A.',
+        'Gonzalo Soto G.', 'Priscilla Torres A.'
       ]
       expect(subject).to eq(validadores)
     end
