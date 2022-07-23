@@ -25,6 +25,10 @@ module ChileConvencion
       li_elements[0]
     end
 
+    def num_participantes
+      li_elements[1]
+    end
+
     def ubicacion
       li_elements[3]
     end

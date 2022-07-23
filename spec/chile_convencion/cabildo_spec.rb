@@ -46,4 +46,10 @@ describe ChileConvencion::Cabildo do
 
     it { should eq('Monte Patria') }
   end
+
+  describe '#num_participantes' do
+    subject { cabildo.num_participantes }
+
+    it { should eq('11') }
+  end
 end
