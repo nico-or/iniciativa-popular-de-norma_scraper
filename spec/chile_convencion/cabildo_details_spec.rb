@@ -38,4 +38,10 @@ describe ChileConvencion::CabildoDetails do
       expect(subject).to eq(validadores)
     end
   end
+
+  describe '#conclusiones' do
+    subject { cabildo_details.conclusiones }
+    it { should be_an Array }
+    it { should all be_a ChileConvencion::Conclusion }
+  end
 end
