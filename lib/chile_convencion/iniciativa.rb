@@ -83,6 +83,12 @@ module ChileConvencion
       @stats_page ||= ChileConvencion::IniciativaStats.new html_body(stats_url)
     end
 
+    def download_urls
+      urls = [details_url]
+      urls << stats_url if stats_page?
+      urls
+    end
+
     private
 
     def h1_element

@@ -42,4 +42,14 @@ describe ChileConvencion do
       expect(subject.count).to eq(2744)
     end
   end
+
+  describe '.download_urls' do
+    subject { ChileConvencion.download_urls }
+
+    it { should be_an Array }
+    it { should all be_a String }
+    it 'should contain 3148 elements' do
+      expect(subject.count).to eq(3148)
+    end
+  end
 end

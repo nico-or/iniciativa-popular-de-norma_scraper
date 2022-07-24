@@ -223,4 +223,43 @@ describe ChileConvencion::Iniciativa do
       end
     end
   end
+
+  describe '#download_urls' do
+    context 'iniciativa popular aprobada' do
+      subject { iniciativa_aprobada.download_urls }
+      it { should be_an Array }
+      it { should all be_a String }
+      it do
+        urls = [
+          'https://plataforma.chileconvencion.cl/m/iniciativa_popular/detalle?id=8590',
+          'https://plataforma.chileconvencion.cl/m/iniciativa_popular/stats?id=8590'
+        ]
+        expect(subject).to contain_exactly(*urls)
+      end
+    end
+
+    context 'iniciativa popular rechazada' do
+      subject { iniciativa_rechazada.download_urls }
+      it { should be_an Array }
+      it { should all be_a String }
+      it do
+        urls = [
+          'https://plataforma.chileconvencion.cl/m/iniciativa_popular/detalle?id=4174'
+        ]
+        expect(subject).to contain_exactly(*urls)
+      end
+    end
+
+    context 'iniciativa indigena' do
+      subject { iniciativa_indigena.download_urls }
+      it { should be_an Array }
+      it { should all be_a String }
+      it do
+        urls = [
+          'https://plataforma.chileconvencion.cl/m/iniciativa_indigena/detalle?id=1562'
+        ]
+        expect(subject).to contain_exactly(*urls)
+      end
+    end
+  end
 end

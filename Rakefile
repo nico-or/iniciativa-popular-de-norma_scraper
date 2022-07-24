@@ -23,20 +23,7 @@ namespace :db do
 
     logger = Logger.new($stdout)
 
-    iniciativas = []
-    iniciativas += ChileConvencion.load_iniciativas 'popular'
-    iniciativas += ChileConvencion.load_iniciativas 'indigena'
-
-    urls = iniciativas.flat_map do |iniciativa|
-      out = []
-      out << iniciativa.details_url
-      out << iniciativa.stats_url if iniciativa.stats_page?
-      out
-    end
-
-    cabildos = ChileConvencion.load_cabildos
-    urls += cabildos.map(&:details_url)
-
+    urls = ChileConvencion.download_urls
     total = urls.count
 
     urls.shuffle.each.with_index do |url, index|

@@ -27,4 +27,11 @@ module ChileConvencion
     index = Nokogiri(File.read('data/index_cabildos.html'))
     index.css('#actas .acta').map { |card| Cabildo.new(card) }
   end
+
+  def self.download_urls
+    foo = []
+    foo += load_all_iniciativas
+    foo += load_cabildos
+    foo.flat_map(&:download_urls)
+  end
 end

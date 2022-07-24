@@ -54,4 +54,16 @@ describe ChileConvencion::Cabildo do
 
     it { should eq('11') }
   end
+
+  describe '#download_urls' do
+    subject { cabildo.download_urls }
+    it { should be_an Array }
+    it { should all be_a String }
+    it do
+      urls = [
+        'https://plataforma.chileconvencion.cl/m/cabildos/o/806'
+      ]
+      expect(subject).to contain_exactly(*urls)
+    end
+  end
 end

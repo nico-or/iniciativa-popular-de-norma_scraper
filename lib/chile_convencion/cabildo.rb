@@ -31,6 +31,10 @@ module ChileConvencion
       li_elements[3]
     end
 
+    def download_urls
+      [details_url]
+    end
+
     private
 
     def relative_path
