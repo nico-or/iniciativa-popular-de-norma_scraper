@@ -4,10 +4,7 @@ module ChileConvencion
   # Parser for Cabildo details webpage
   class CabildoDetails < WebpageParser
     def temas_abordados
-      @parsed
-        .css('#encuentro h2 + p')
-        .map(&:text)
-        .map { _1.gsub(/\ATema: /, '') }
+      conclusiones.map(&:tema)
     end
 
     def participantes_validadores
