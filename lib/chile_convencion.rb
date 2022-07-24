@@ -8,6 +8,7 @@ require_relative 'chile_convencion/cabildo_details'
 require_relative 'chile_convencion/iniciativa'
 require_relative 'chile_convencion/script_tag'
 require_relative 'chile_convencion/cabildo'
+require_relative 'chile_convencion/conclusion'
 require_relative '../db/database'
 require_relative 'helpers'
 
